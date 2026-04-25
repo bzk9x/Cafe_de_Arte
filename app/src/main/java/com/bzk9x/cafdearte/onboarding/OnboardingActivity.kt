@@ -1,5 +1,6 @@
 package com.bzk9x.cafdearte.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -27,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bzk9x.cafdearte.R
+import com.bzk9x.cafdearte.home.HomeActivity
 import com.bzk9x.cafdearte.ui.theme.CaféDeArteTheme
 import com.bzk9x.cafdearte.ui.theme.Sora
 
@@ -93,8 +96,12 @@ fun Onboarding() {
                             fontSize = 14.sp,
                             lineHeight = 21.sp,
                         )
+                        val context = LocalContext.current
                         Button(
-                            onClick = {},
+                            onClick = {
+                                val homeActivity = Intent(context, HomeActivity::class.java)
+                                context.startActivity(homeActivity)
+                            },
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = MaterialTheme.colorScheme.primary
                             ),
